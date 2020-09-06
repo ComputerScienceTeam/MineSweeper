@@ -179,7 +179,7 @@ function AddMines(mines){
 	var tilesLeft=tds.length;
 	var minesLeft=mines;
 	$('td').each(function(index) {
-        var randomNum=Math.floor(Math.random()*tilesLeft);
+      var randomNum=Math.floor(Math.random()*tilesLeft);
 		if(randomNum<minesLeft){
 			$(this).addClass('mine');
 			minesLeft--;
@@ -237,6 +237,7 @@ function ValidateGame(){
 	}
 }
 function SaveGame(){
+	if($('#ms').hasClass('gameOver')) return
 	if(localStorage.getItem('minesweeperGames')){
 		var games=JSON.parse(localStorage.getItem('minesweeperGames'));
 	}

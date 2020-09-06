@@ -4,7 +4,9 @@
 <meta charset="utf-8">
 <title>MineSweeper</title>
 <link rel="stylesheet" href="CSS/MS.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="icon" href="Images/icon.png">
+<script src="Javascript/jQuery.js"></script>
+<!-- <script id="soundFX" src="Javascript/Audio.js"></script> -->
 </head>
 
 <body>
@@ -13,6 +15,7 @@
         <button id="validate">Validate</button>
        	<button id="cheat">Cheat</button>
         <button id="save">Save Game</button>
+        <!-- Sound:<input id="check" type="checkbox" checked> -->
     </div>
     <table id="ms"></table>
     <div class="function">
@@ -22,6 +25,7 @@
             <option value="intermediate">Intermediate (12x12, 20 mines)</option>
             <option value="expert">Expert (16x16, 40 mines)</option>
             <option value="custom">Custom</option>
+            <option value="insane" title="F12 won't save you haha, Unless you know how to use console">Test your insanity</option>
         </select>
         <button id="new">New Game</button>
        	<br>
@@ -38,6 +42,18 @@
     	<h2>Your Saved Games:</h2>
         <div id="saved"></div>
     </div>
-    <script src="Javascript/MS.js"></script>
+    <!-- <script src="Javascript/MS.js"></script> -->
+    <script src="Javascript/New.js"></script>
+    <script>
+        $('#check').click(function(){
+            if($(this).is(":checked")){
+                $("#soundFX").attr('src','Javascript/Audio.js')
+            }
+            else
+            {
+                $("#soundFX").attr('src','')
+            }
+        })
+    </script>
 </body>
 </html>
