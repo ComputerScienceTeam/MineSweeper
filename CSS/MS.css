@@ -18,6 +18,7 @@ table{
 	border-spacing: 0px;
 }
 td{
+	font-size: 30px;
 	cursor: crosshair;
 	background-color: #bbb;
 	height: 34px;

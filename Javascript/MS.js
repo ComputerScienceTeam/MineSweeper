@@ -192,7 +192,8 @@ function AddMines(mines){
 }
 function CheatGame(){
 	$('td').each(function(index) {
-        if(!$(this).hasClass('mine')){
+		if($(this).hasClass('flagged')) $(this).remove('img').removeClass('flagged')
+      if(!$(this).hasClass('mine')){
 			RevealTile($(this));
 		}
     });
@@ -302,10 +303,16 @@ function MakeMineSweeper(){
 			width=16;
 			mines=40;
 			break;
+		case "insane":
+			height=40;
+			width=40;
+			mines=320;
+			break;
 		case "custom":
 			height=$('#height').val();
 			width=$('#width').val();
 			mines=$('#mine').val();
+			console.log(mines)
 			break;
 	}
 	$("#ms").removeClass('gameOver');
@@ -336,11 +343,13 @@ $(document).ready(function() {
 	$('.custom').on('keydown', function(e){
 		e.preventDefault();
 	});
-	$('.custom').click(function() {
+	$('.custom').on('click mousedown',function() {
         var text="";
 		var height=$("#height").val();
 		var width=$("#width").val()
 		text+=Math.round(height*width)/2;
+		console.log('💩'+text)
+		if ( Number(text) < $("#mine").attr('max') )	$('#mine').val(text)
 		$("#mine").attr("max",text);
     });
     $('#new').click(function() {
