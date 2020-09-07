@@ -4,9 +4,7 @@
 <meta charset="utf-8">
 <title>MineSweeper</title>
 <link rel="stylesheet" href="CSS/MS.css">
-<link rel="icon" href="Images/icon.png">
-<script src="Javascript/jQuery.js"></script>
-<!-- <script id="soundFX" src="Javascript/Audio.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -15,7 +13,6 @@
         <button id="validate">Validate</button>
        	<button id="cheat">Cheat</button>
         <button id="save">Save Game</button>
-        <!-- Sound:<input id="check" type="checkbox" checked> -->
     </div>
     <table id="ms"></table>
     <div class="function">
@@ -24,18 +21,18 @@
         	<option value="easy" selected>Easy (8x8, 10 mines)</option>
             <option value="intermediate">Intermediate (12x12, 20 mines)</option>
             <option value="expert">Expert (16x16, 40 mines)</option>
+            <option value="insane">Insane (40x40, 320 mines)</option>
             <option value="custom">Custom</option>
-            <option value="insane" tile="Don't cheat please">Test your insanity</option>
         </select>
         <button id="new">New Game</button>
        	<br>
         <div id="customSection">
         	Height:
-            <input type="number" id="height" class="custom" value="8" min="8" max="24">
+            <input type="number" id="height" class="custom" value="8" min="8" max="40">
             Width:
-            <input type="number" id="width" class="custom" value="8" min="8" max="24">
+            <input type="number" id="width" class="custom" value="8" min="8" max="40">
             Mines:
-            <input type="number" id="mine" name="mines" class="custom" value="10" min="10">
+            <input type="number" id="mine" class="custom" value="10" min="10">
         </div>
     </div>
     <div class="savedSection">
@@ -43,17 +40,5 @@
         <div id="saved"></div>
     </div>
     <script src="Javascript/MS.js"></script>
-    <!-- <script src="Javascript/New.js"></script> -->
-    <script>
-        $('#check').click(function(){
-            if($(this).is(":checked")){
-                $("#soundFX").attr('src','Javascript/Audio.js')
-            }
-            else
-            {
-                $("#soundFX").attr('src','')
-            }
-        })
-    </script>
 </body>
 </html>
