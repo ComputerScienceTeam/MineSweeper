@@ -56,14 +56,11 @@ td:not(.revealed):hover{
 @keyframes blink{
 	0%{
 		background-color:#bbb;
-		border-color: #ddd #777 #777 #ddd
 	}
 	50%{
-		background-color: white;
-		border-color: wheat;
+		background-color: wheat;
 	}
 	100%{
 		background-color: #bbb;
-		border-color: #ddd #777 #777 #ddd
 	}
 }
