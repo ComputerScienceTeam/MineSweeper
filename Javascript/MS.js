@@ -1,4 +1,28 @@
 // JavaScript Document
+var win=new Audio();
+win.src="Audio/Win.mp3";
+win.preload='auto';
+win.volume=0.5;
+
+var dead=new Audio();
+dead.src="Audio/Bomb.mp3";
+dead.preload='auto';
+dead.volume=0.5;
+	
+var mouse=new Audio();
+mouse.src="Audio/MouseClick.wav";
+mouse.preload='auto';
+mouse.volume=0.5;
+
+function Winning(){
+	win.play();
+}
+function MineSound(){
+	dead.play();
+}
+function MouseClick(){
+	mouse.play();
+}
 function MakeGame(height, width, mines){
 	var table=$("#ms");
 	table.html('');
@@ -147,11 +171,21 @@ function MakeClickAble(){
             if(!$("#ms").hasClass('gameOver')){
 				switch(event.which){
 					case 1:
+					{
+						if((!$(this).hasClass('revealed')&&!$(this).hasClass('mine'))||(!$(this).hasClass('revealed')&&$(this).hasClass('flagged'))){
+							MouseClick();
+						}
 						RevealTile($(this));
-						break;
+					}
+					break;
 					case 3:
+					{
+						if(!$(this).hasClass('revealed')){
+							MouseClick();
+						}
 						FlagTile($(this));
-						break;
+					}
+					break;
 				}
 			}
         });
@@ -192,9 +226,6 @@ function AddMines(mines){
 }
 function CheatGame(){
 	$('td').each(function(index) {
-	  if($(this).hasClass('flagged')) {
-		  $(this).removeClass('flagged');
-	  }
       if(!$(this).hasClass('mine')){
 			RevealTile($(this));
 		}
@@ -211,6 +242,7 @@ function IsGameWon(){
 }
 function EndGameWin(){
 	$('#header').text('You Win! Congratulations!');
+	Winning();
 	$('.mine').each(function() {
         $(this).html('<img src="Images/flag.png" />');
     });
@@ -218,6 +250,7 @@ function EndGameWin(){
 }
 function EndGameLose(){
 	$('#header').text('You Lose!');
+	MineSound();
 	$('.mine').each(function() {
         $(this).html('<img src="Images/mine.png" />');
 		$(this).css("border","1px solid");
@@ -306,9 +339,9 @@ function MakeMineSweeper(){
 			mines=40;
 			break;
 		case "insane":
-			height=40;
-			width=40;
-			mines=320;
+			height=30;
+			width=30;
+			mines=180;
 			break;
 		case "custom":
 			height=$('#height').val();
@@ -352,10 +385,10 @@ $(document).ready(function() {
 		var height=$("#height").val();
 		var width=$("#width").val()
 		text+=Math.round(height*width)/2;
-		if ( Number(text) < $("#mine").attr('max') ){
+		if(Number(text)<$('#mine').attr('max')){
 			$('#mine').val(text)
 		}
-		$("#mine").attr("max",text);
+		$('#mine').attr('max',text);
     });
     $('#new').click(function() {
         MakeMineSweeper();

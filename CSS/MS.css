@@ -46,7 +46,9 @@ a{
 .custom{
 	width: 40px;
 }
-.savedSection{padding-top: 20px;}
+.savedSection{
+	padding-top: 20px;
+}
 td:not(.revealed):hover{
 	transition: background-color;
 	animation: blink 500ms linear infinite;
