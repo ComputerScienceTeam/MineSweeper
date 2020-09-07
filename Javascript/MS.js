@@ -335,6 +335,9 @@ $(document).ready(function() {
 			case "expert":
 				$('#customSection').css("display","none");
 				break;
+			case "insane":
+				$('#customSection').css("display","none");
+				break;
 			case "custom":
 				$('#customSection').css("display","block");
 				break;
