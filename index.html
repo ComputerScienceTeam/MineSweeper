@@ -15,7 +15,9 @@
        	<button id="cheat">Cheat</button>
         <button id="save">Save Game</button>
     </div>
-    <table id="ms"></table>
+    <div id="holder">
+        <table id="ms"></table>
+    </div>
     <div class="function">
     	Level:
         <select id="level" name="level">
@@ -25,6 +27,8 @@
             <option value="insane">Insane (30x30, 180 mines)</option>
             <option value="custom">Custom</option>
         </select>
+        <label for="fog" title="You can only see mine indicators in 3x3 tile">| Fog Mode:</label>
+        <input type="checkbox" id="fog"> 
         <button id="new">New Game</button>
        	<br>
         <div id="customSection">
