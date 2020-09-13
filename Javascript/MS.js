@@ -191,7 +191,7 @@ function fogMode(){
 }
 function Show(td){
 	if (td.hasClass('mine')) return;
-	td.children().toggleClass('show');
+	td.children('span').toggleClass('show');
 }
 function CheatGame(){
 	$('td').each(function(index) {
