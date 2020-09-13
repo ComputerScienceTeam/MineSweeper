@@ -90,12 +90,12 @@ function RevealTile(td){
 function FlagTile(td){
 	if(td.hasClass('flagged')){
 		td.removeClass('flagged');
-		td.text('');
+		td.children('img').remove();
 	}
 	else{
 		if(!td.hasClass('revealed')){
 			td.addClass('flagged');
-			td.html('<img src="Images/flag.png" />');
+			td.append('<img src="Images/flag.png" />');
 		}
 	}
 }
