@@ -393,4 +393,3 @@ $(document).ready(function() {
 	MakeMineSweeper();
 	DisplaySavedGames();
 });
-$('fog').attr
