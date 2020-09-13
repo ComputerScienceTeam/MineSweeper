@@ -259,12 +259,10 @@ function SaveGame(){
 		var games=[];
 	}
 	var gameInfo = $("#ms").attr('class').split('.')
-	console.log(gameInfo)
 	for (var i = 0; i < gameInfo.length; i++)
 	{
 		gameInfo[i] = gameInfo[i].toUpperCase();
 	}
-	console.log(gameInfo)
 	gameInfo.join(" ")
 	var newGame=[new Date().getTime(),$("#holder").html(),gameInfo];
 	games.push(newGame);
@@ -292,6 +290,14 @@ function LoadGame(time){
 			$("#holder").html(games[i][1]);
 			$("#header").text("MineSweeper");
 			$('#cheat').html("Cheat");
+			if($('#ms').hasClass('fogMode'))
+			{
+				$('#fog').attr('checked',true);
+			}
+			else
+			{
+				$('#fog').attr('checked',false);
+			}
 			MakeClickAble();
 		}
 	}
@@ -387,3 +393,4 @@ $(document).ready(function() {
 	MakeMineSweeper();
 	DisplaySavedGames();
 });
+$('fog').attr
